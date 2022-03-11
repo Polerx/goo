@@ -7,19 +7,8 @@ urllib3.disable_warnings()
 
 
 print('''
-
-
-   ___    ___                             
-  / __\  / __\      ___ _ __   __ _ _ __  
- /__\// /__\//_____/ __| '_ \ / _` | '_ \ 
-/ \/  \/ \/  \_____\__ \ | | | (_| | |_) |
-\_____/\_____/     |___/_| |_|\__,_| .__/ 
-                                   |_|    
-       
-       -> flaaah777@gmail.com 
-       -> 2022 (4v) التحديث الجديد
-------------------------------------------
-
+By Rayan al-Juhani 
+ig @h_p
 ''')
 
 
@@ -41,7 +30,7 @@ class report:
         try:
             captcha_id = self.session.post("http://2captcha.com/in.php?key={}&method=userrecaptcha&googlekey={}&pageurl={}".format(self.API_KEY, self.site_key, self.url)).text.split('|')[1]
             recaptcha_answer = self.session.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(self.API_KEY, captcha_id)).text
-            print(Fore.YELLOW+"[Solving] captcha solving...")
+            print(Fore.White+"[Response] captcha solving...")
             while 'CAPCHA_NOT_READY' in recaptcha_answer:
                 time.sleep(5)
                 recaptcha_answer = self.session.get("http://2captcha.com/res.php?key={}&action=get&id={}".format(self.API_KEY, captcha_id)).text
@@ -71,7 +60,7 @@ class report:
         send_report = self.session.post("https://support.snapchat.com/en-US/api/v2/send",data=data,headers=headers , verify=False)
 		
         if send_report.status_code==200:
-            print(Fore.GREEN+"[Success] تم ارسال التقرير {}".format(self.user))		
+            print(Fore.GREEN+"[Requests] Done {}".format(self.user))		
         else:
             print(Fore.RED+"[Error] لا يمكن إرسال التقرير")
 
